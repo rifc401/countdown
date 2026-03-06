@@ -5,8 +5,7 @@
 <title>Countdown</title>
 
 <style>
-
-html, body {
+html, body{
   margin:0;
   padding:0;
   width:252px;
@@ -21,22 +20,29 @@ html, body {
 #container{
   width:252px;
   height:468px;
-  text-align:center;
   display:flex;
   flex-direction:column;
-  justify-content:flex-start;
   align-items:center;
+  justify-content:center; /* centers vertically */
   color:#57ccf6;
   font-family:Arial, Helvetica, sans-serif;
+  text-align:center;
 }
 
 #title{
   font-family:Georgia, serif;
-  font-size:22px;
+  font-size:20px;
   font-weight:bold;
-  margin-top:20px;
-  margin-bottom:35px;
-  letter-spacing:1px;
+  margin-bottom:30px;
+}
+
+#grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-row-gap:40px;
+  grid-column-gap:20px;
+  width:100%;
+  justify-items:center;
 }
 
 .number{
@@ -46,69 +52,70 @@ html, body {
 }
 
 .label{
-  font-size:18px;
+  font-size:16px;
   font-weight:bold;
   letter-spacing:2px;
-  margin-bottom:22px;
 }
 
+.block{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 </style>
-
 </head>
 
 <body>
-
 <div id="container">
 
-<div id="title">COUNTDOWN TO KICKOFF</div>
+  <div id="title">COUNTDOWN TO KICKOFF</div>
 
-<div>
-<div class="number" id="days"></div>
-<div class="label">DAYS</div>
-</div>
+  <div id="grid">
 
-<div>
-<div class="number" id="hours"></div>
-<div class="label">HOURS</div>
-</div>
+    <div class="block">
+      <div class="number" id="days"></div>
+      <div class="label">DAYS</div>
+    </div>
 
-<div>
-<div class="number" id="minutes"></div>
-<div class="label">MINUTES</div>
-</div>
+    <div class="block">
+      <div class="number" id="hours"></div>
+      <div class="label">HOURS</div>
+    </div>
 
-<div>
-<div class="number" id="seconds"></div>
-<div class="label">SECONDS</div>
-</div>
+    <div class="block">
+      <div class="number" id="minutes"></div>
+      <div class="label">MINUTES</div>
+    </div>
+
+    <div class="block">
+      <div class="number" id="seconds"></div>
+      <div class="label">SECONDS</div>
+    </div>
+
+  </div>
 
 </div>
 
 <script>
-
 const targetDate = new Date("March 14, 2026 16:00:00 GMT-0400").getTime();
 
 function updateCountdown(){
+  const now = new Date().getTime();
+  const diff = targetDate - now;
 
-const now = new Date().getTime();
-const diff = targetDate - now;
+  const days = Math.floor(diff/(1000*60*60*24));
+  const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+  const seconds = Math.floor((diff%(1000*60))/1000);
 
-const days = Math.floor(diff/(1000*60*60*24));
-const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
-const seconds = Math.floor((diff%(1000*60))/1000);
-
-document.getElementById("days").innerHTML = days;
-document.getElementById("hours").innerHTML = hours;
-document.getElementById("minutes").innerHTML = minutes;
-document.getElementById("seconds").innerHTML = seconds;
-
+  document.getElementById("days").innerHTML = days;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("minutes").innerHTML = minutes;
+  document.getElementById("seconds").innerHTML = seconds;
 }
 
 setInterval(updateCountdown,1000);
 updateCountdown();
-
 </script>
-
 </body>
 </html>
