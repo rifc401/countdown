@@ -26,27 +26,30 @@ html, body {
   flex-direction:column;
   justify-content:flex-start;
   align-items:center;
-  font-family:Arial, Helvetica, sans-serif;
   color:#57ccf6;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 #title{
   font-family:Georgia, serif;
-  font-size:18px;
+  font-size:22px;
+  font-weight:bold;
   margin-top:20px;
-  margin-bottom:30px;
+  margin-bottom:35px;
   letter-spacing:1px;
 }
 
 .number{
-  font-size:48px;
+  font-size:64px;
   font-weight:bold;
+  line-height:1;
 }
 
 .label{
-  font-size:14px;
+  font-size:18px;
+  font-weight:bold;
   letter-spacing:2px;
-  margin-bottom:18px;
+  margin-bottom:22px;
 }
 
 </style>
@@ -83,7 +86,7 @@ html, body {
 
 <script>
 
-const targetDate = new Date("September 1, 2026 19:30:00").getTime(); // CHANGE DATE
+const targetDate = new Date("March 14, 2026 16:00:00 GMT-0400").getTime();
 
 function updateCountdown(){
 
