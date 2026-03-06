@@ -5,61 +5,76 @@
 <title>Countdown</title>
 
 <style>
+
 html, body {
   margin:0;
   padding:0;
   width:252px;
   height:468px;
-  background:#000;
+  background:#0B2341;
   overflow:hidden;
   display:flex;
   justify-content:center;
   align-items:center;
-  font-family:Arial, Helvetica, sans-serif;
 }
 
-#timer {
-  color:white;
+#container{
+  width:252px;
+  height:468px;
   text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#57ccf6;
+}
+
+#title{
+  font-family:Georgia, serif;
+  font-size:18px;
+  margin-top:20px;
+  margin-bottom:30px;
+  letter-spacing:1px;
+}
+
+.number{
+  font-size:48px;
   font-weight:bold;
 }
 
-.number {
-  font-size:48px;
-}
-
-.label {
+.label{
   font-size:14px;
   letter-spacing:2px;
-  opacity:0.7;
-}
-
-.block {
   margin-bottom:18px;
 }
+
 </style>
+
 </head>
 
 <body>
 
-<div id="timer">
+<div id="container">
 
-<div class="block">
+<div id="title">COUNTDOWN TO KICKOFF</div>
+
+<div>
 <div class="number" id="days"></div>
 <div class="label">DAYS</div>
 </div>
 
-<div class="block">
+<div>
 <div class="number" id="hours"></div>
 <div class="label">HOURS</div>
 </div>
 
-<div class="block">
+<div>
 <div class="number" id="minutes"></div>
 <div class="label">MINUTES</div>
 </div>
 
-<div class="block">
+<div>
 <div class="number" id="seconds"></div>
 <div class="label">SECONDS</div>
 </div>
